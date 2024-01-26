@@ -27,7 +27,9 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<User> getAllUser() {
-		return userDao.findAll();
+		List<User> users = userDao.findAll().stream()
+				.map(user -> new User(user.getUserID(), user.getUserName(), "*****", user.getUserRole())).toList();
+	return users;
 	}
 		
 }
