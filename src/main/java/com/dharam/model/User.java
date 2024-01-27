@@ -1,5 +1,6 @@
 package com.dharam.model;
 
+import jakarta.persistence.Column;
 import org.hibernate.annotations.Proxy;
 
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.Id;
 @Proxy(lazy = false)
 public class User {
 	@Id
+	@Column(unique = true,nullable = false)
 	private String userID;
 	private String userName;
 	private String userPass;
